@@ -17,9 +17,9 @@ function QuotationTable({ data, setDataItems }) {
     let discount = 0
 
     const z = data.map((v, i) => {
-      let amount = v.qty * v.ppu;
+      let amount = (v.qty * v.ppu) - v.dc;
       discount += v.dc * 1;
-      sum += amount
+      sum += (v.qty * v.ppu);
       return (
         <tr key={i}>
           <td><FaTrash onClick={() => deleteClick(i)}/></td>
